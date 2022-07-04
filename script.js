@@ -63,7 +63,7 @@ let tbody = document.createElement("tbody");
 tbody.setAttribute("id", "tbody");
 table.appendChild(tbody);
 
-const baseURL = "http://makeup-api.herokuapp.com/api/v1/products.json";
+const baseURL = "https://makeup-api.herokuapp.com/api/v1/products.json";
 
 const getAllRecords = async () => {
   try {
