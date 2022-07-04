@@ -1,4 +1,29 @@
-let thead = document.getElementById("thead");
+//Index.html file needed for giving bootstrap file referances
+
+let body = document.getElementsByTagName("body");
+
+let div = document.createElement("div");
+div.classList.add("container");
+document.body.appendChild(div);
+
+let section = document.createElement("section");
+section.classList.add("text-center", "my-2", "fs-6");
+div.appendChild(section);
+
+let input = document.createElement("input");
+input.setAttribute("type", "text");
+input.setAttribute("id", "search");
+input.setAttribute("placeholder", "Search here");
+section.appendChild(input);
+
+let table = document.createElement("table");
+table.setAttribute("class", "table");
+div.appendChild(table);
+
+let thead = document.createElement("thead");
+thead.setAttribute("id", "thead");
+
+// let thead = document.getElementById("thead");
 let tr = document.createElement("tr");
 
 let brand = document.createElement("th");
@@ -32,6 +57,11 @@ description.setAttribute("scope", "col");
 tr.appendChild(description);
 
 thead.appendChild(tr);
+table.appendChild(thead);
+
+let tbody = document.createElement("tbody");
+tbody.setAttribute("id", "tbody");
+table.appendChild(tbody);
 
 const baseURL = "http://makeup-api.herokuapp.com/api/v1/products.json";
 
@@ -69,7 +99,7 @@ const populateGridData = (data) => {
     let image_link = document.createElement("td");
     let img = document.createElement("img");
     img.setAttribute("src", data[i].image_link);
-    img.classList.add("img-fluid", "shadow-lg", "rounded", "img-design");
+    img.classList.add("img-fluid", "shadow-lg", "rounded");
     image_link.appendChild(img);
     tr.appendChild(image_link);
 
@@ -109,4 +139,4 @@ searchValue.addEventListener("keyup", () => {
 });
 
 getAllRecords();
-const errorHandler = (er) => console.error(er);
+
